@@ -1,0 +1,9 @@
+DONAXNO_CSV/
+DONAXNO_XLSX/
+NAVAXNO_CSV/
+NAVAXNO_XLSX/
+split2excel/
+test/
+*.xlsx
+*.7z
+*.csv
