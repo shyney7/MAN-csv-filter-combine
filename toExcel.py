@@ -1,10 +1,8 @@
+import traceback
 import pandas as pd
 import os
 from glob import glob
 import traceback
-
-# readFile = pd.read_csv("filtered_timestamp_combined_csv.csv", nrows= 20)
-# readFile.to_excel("filtered_timestamp_combined.xlsx", index= None, header=True)
 
 """ PATH = "./DONAXNO_CSV" """
 EXT = "*.csv"
@@ -13,7 +11,7 @@ EXT = "*.csv"
             for file in glob(os.path.join(path, EXT))]
 # print(csvFilesDonaxno) """
 
-PATH = "./split2excel"
+PATH = "./NAVAXNO_CSV"
 
 csvFilesNavaxno = [file 
             for path, subdir, files in os.walk(PATH)
@@ -34,11 +32,11 @@ csvFilesNavaxno = [file
 
 for csv in csvFilesNavaxno:
     try:
-        readFile = pd.read_csv(csv)
+        readFile = pd.read_csv(csv, delimiter=';')
     except Exception:
         traceback.print_exc()
     try:
-        readFile.to_excel("./split_XLSX\\" + os.path.basename(csv) + ".xlsx", index= None, header=True)
+        readFile.to_excel("./NAVAXNO_XLSX\\" + os.path.basename(csv) + ".xlsx", index= None, header=True)
     except Exception:
         traceback.print_exc()
 
