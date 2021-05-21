@@ -1,5 +1,5 @@
 import os
-import glob
+from glob import glob
 import pandas as pd
 
 os.chdir("./NAVAXNO_CSV/1")
@@ -7,7 +7,7 @@ os.chdir("./NAVAXNO_CSV/1")
 filter = open("filter.txt").read().splitlines()
 
 extension = 'csv'
-all_filenames = [i for i in glob.glob('*.{}'.format(extension))]
+all_filenames = [i for i in glob('*.{}'.format(extension))]
 
 combined_csv = pd.concat([pd.read_csv(f, delimiter=';') for f in all_filenames])
 combined_csv.drop(combined_csv.columns.difference(filter), 1, inplace=True)

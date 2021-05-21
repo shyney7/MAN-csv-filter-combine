@@ -1,8 +1,7 @@
+import os
 import traceback
 import pandas as pd
-import os
 from glob import glob
-import traceback
 
 """ PATH = "./DONAXNO_CSV" """
 EXT = "*.csv"
